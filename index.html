@@ -7,8 +7,8 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
-    *{
-        font-family: "Single Day", cursive;
+    * {
+      font-family: "Single Day", cursive;
     }
     /* Custom CSS for the page */
     .gif-container {
@@ -25,7 +25,7 @@
   </style>
 </head>
 <body class="bg-gray-100 flex flex-col justify-center items-center min-h-screen">
-  <div class="text-center">
+  <div class="text-center" id="messageContainer">
     <h1 class="text-4xl font-bold text-gray-800 mb-4">Hi Subbi❤️</h1>
     <p class="text-lg text-gray-600 mb-8">I am sorry Subbiyaa i extrimistrimly sorry 🥹🥹 tappaytooooo ond sala kshams matad</p>
     <!-- Main GIF (Change this source for the main GIF) -->
@@ -39,56 +39,56 @@
   </div>
 
   <script>
-  const container = document.querySelector('.container');
-  const mainGif = document.getElementById('mainGif');
-  const noButton = document.getElementById('noBtn');
-  const okayButton = document.getElementById('okayBtn');
-  const gifContainer = document.querySelector('.gif-container');
-  const sorryText = document.querySelector('.sorry-text');
+    const container = document.getElementById('messageContainer');
+    const mainGif = document.getElementById('mainGif');
+    const noButton = document.getElementById('noBtn');
+    const okayButton = document.getElementById('okayBtn');
+    const gifContainer = document.querySelector('.gif-container');
 
-  const noGifSource = 'https://i.pinimg.com/originals/b5/2c/49/b52c4971a69c70519f7f585f80669d45.gif';
-  const okayGifSource = 'https://i.pinimg.com/originals/c0/a9/da/c0a9da48c40047252159eb7e85c1d9f8.gif';
+    const noGifSource = 'https://i.pinimg.com/originals/b5/2c/49/b52c4971a69c70519f7f585f80669d45.gif';
+    const okayGifSource = 'https://i.pinimg.com/originals/c0/a9/da/c0a9da48c40047252159eb7e85c1d9f8.gif';
 
-  const changeGif = (src, timeout) => {
-    mainGif.src = src;
+    const changeGif = (src, timeout) => {
+      mainGif.src = src;
 
-    setTimeout(() => {
-      mainGif.src = 'https://i.pinimg.com/originals/bf/5c/23/bf5c23a8700771c0721f667bfa3b9d0c.gif';
-    }, timeout);
-  };
+      setTimeout(() => {
+        mainGif.src = 'https://i.pinimg.com/originals/bf/5c/23/bf5c23a8700771c0721f667bfa3b9d0c.gif';
+      }, timeout);
+    };
 
-  noButton.addEventListener('click', () => {
-    noButton.classList.add('no-clicked');
-    sorryText.classList.add('hidden');
+    noButton.addEventListener('click', () => {
+      noButton.classList.add('no-clicked');
 
-    changeGif(noGifSource, 2000);
+      changeGif(noGifSource, 2000);
 
-    disableButtons(okayButton, noButton);
+      disableButtons(okayButton, noButton);
 
-    setTimeout(() => {
-      enableButtons(okayButton, noButton);
-      noButton.classList.remove('no-clicked');
-    }, 2000);
-  });
+      setTimeout(() => {
+        enableButtons(okayButton, noButton);
+        noButton.classList.remove('no-clicked');
+      }, 2000);
+    });
 
-  okayButton.addEventListener('click', () => {
-    changeGif(okayGifSource, 0);
+    okayButton.addEventListener('click', () => {
+      changeGif(okayGifSource, 0);
 
-    disableButtons(okayButton, noButton);
+      disableButtons(okayButton, noButton);
 
-    gifContainer.innerHTML = `
-      <img src="https://i.pinimg.com/originals/c0/a9/da/c0a9da48c40047252159eb7e85c1d9f8.gif" alt="Accepted GIF">
-      <p class="text-lg text-gray-600 mt-4">Thank you so much for forgiving me, Subbi❤️❤️ I promise to never do it again. Your forgiveness means the world to me. 🌟🥺🫂</p>
-    `;
-  });
+      container.innerHTML = `
+        <div class="gif-container mb-8">
+          <img src="https://i.pinimg.com/originals/c0/a9/da/c0a9da48c40047252159eb7e85c1d9f8.gif" alt="Accepted GIF">
+        </div>
+        <p class="text-lg text-gray-600 mt-4">Thankyou for your forgiveness, Subbi. I promise to do better. Your kindness means everything to me. 🌟🌸</p>
+      `;
+    });
 
-  const disableButtons = (...buttons) => {
-    buttons.forEach(button => button.disabled = true);
-  };
+    const disableButtons = (...buttons) => {
+      buttons.forEach(button => button.disabled = true);
+    };
 
-  const enableButtons = (...buttons) => {
-    buttons.forEach(button => button.disabled = false);
-  };
+    const enableButtons = (...buttons) => {
+      buttons.forEach(button => button.disabled = false);
+    };
   </script>
 </body>
 </html>
